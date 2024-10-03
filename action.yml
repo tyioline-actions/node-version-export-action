@@ -1,0 +1,20 @@
+name: "Node.js Version Export Action"
+description: "A GitHub Action that extracts the version from package.json and exports it as an output."
+author: "Jannik Schroeder"
+date: "2024-10-03"
+inputs:
+  path:
+    description: "Path to the package.json file"
+    required: false
+    default: "./package.json"
+outputs:
+  version:
+    description: "The extracted Node.js package version"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.path }}
+branding:
+  icon: "package"
+  color: "blue"
